@@ -1,0 +1,332 @@
+<div id="app" class="container">
+	<!-- Screen 1: Room Type & Calculator -->
+	<div id="screen-calculator" class="screen active">
+		<h2>Step 1: Calculate Your Sunroom Cost</h2>
+		<p class="subtitle">
+			After selecting the room type. Simply Measure the length of each wall
+			where your sunroom will be installed. Don't worry about being exact -
+			we'll confirm everything during the on-site visit.
+		</p>
+
+		<!-- Room Type Selection -->
+		<div class="room-selection-container">
+			<p class="selection-label">Select a Sunroom Type</p>
+			<div class="room-types">
+				<div
+					class="room-card"
+					data-room-type="screen"
+				>
+					<h3>Screen Only</h3>
+					<p class="price">$100 - $130 per linear ft</p>
+					<p class="desc">Perfect for bug-free outdoor enjoyment</p>
+				</div>
+
+				<div
+					class="room-card"
+					data-room-type="3season"
+				>
+					<h3>3-Season Ezee Breeze</h3>
+					<p class="price">$200 - $300 per linear ft</p>
+					<p class="desc">Enjoy spring, summer, and fall</p>
+				</div>
+
+				<div
+					class="room-card"
+					data-room-type="glass"
+				>
+					<h3>Glass</h3>
+					<p class="price">$600 - $800 per linear ft</p>
+					<p class="desc">Year-round comfort and enjoyment</p>
+				</div>
+			</div>
+		</div>
+		<div class="room-selection-container">
+			<p class="selection-label">Enter Wall Measurements:</p>
+			<!-- Measurement Section (Initially Disabled) -->
+			<div id="measurement-section" class="measurement-section disabled">
+				<div class="wall-diagram-container">
+					<!-- Top Wall Input -->
+					<div class="wall-input-wrapper wall-input-top">
+						<label>↓ Wall 2 Length (feet)</label>
+						<input
+							type="number"
+							id="wall2"
+							placeholder="0"
+							min="0"
+							step="0.5"
+							tabindex="2"
+							disabled
+						/>
+					</div>
+
+					<div class="wall-diagram-row">
+						<!-- Left Wall Input -->
+						<div class="wall-input-wrapper wall-input-left">
+							<label>Wall 1 Length (feet) →</label>
+							<input
+								type="number"
+								id="wall1"
+								placeholder="0"
+								min="0"
+								step="0.5"
+								tabindex="1"
+								disabled
+							/>
+						</div>
+
+						<!-- Porch Box (Center) -->
+						<div class="porch-box">
+							<div class="porch-walls">
+								<div class="wall wall-top"></div>
+								<div class="wall wall-left"></div>
+								<div class="wall wall-right"></div>
+							</div>
+							<div class="porch-content">
+								<h4>Porch</h4>
+								<p id="total-feet">Total Linear Feet: <span>0 ft</span></p>
+							</div>
+						</div>
+
+						<!-- Right Wall Input -->
+						<div class="wall-input-wrapper wall-input-right">
+							<label>← Wall 3 Length (feet)</label>
+							<input
+								type="number"
+								id="wall3"
+								placeholder="0"
+								min="0"
+								step="0.5"
+								tabindex="3"
+								disabled
+							/>
+							<span class="optional-label">(Optional)</span>
+						</div>
+					</div>
+					<div class="house-attachment">
+						<span>Attached to House</span>
+					</div>
+				</div>
+
+				<!-- Price Display (Initially Hidden) -->
+				<div id="price-display" class="price-display hidden">
+					<h3>Your Instant Price Range</h3>
+					<p class="price-range">$0 - $0</p>
+					<p class="note">
+						Note: These are estimated ranges based on standard
+						installations. Actual costs may vary based on site conditions,
+						design choices, and selected options.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Buttons -->
+		<div class="button-group">
+			<a href="/" class="back-button">
+				← Cancel
+			</a>
+			<button
+				id="continue-btn"
+				class="cta-button"
+				disabled
+			>
+				Get My Official Estimate →
+			</button>
+		</div>
+	</div>
+
+	<!--
+Screen 2: Contact Form -------------------------------------------
+-->
+	<div id="screen-contact" class="screen">
+		<h2>Step 2: Schedule Your Free Estimate</h2>
+		<p class="subtitle">
+			We'll contact you within 24 hours to schedule your on-site
+			consultation
+		</p>
+
+		<div class="form-layout">
+			<div class="form-section">
+				<h3>Tell us about your project</h3>
+
+				<form id="quote-form">
+					<input
+						type="text"
+						id="fullName"
+						placeholder="Full Name*"
+						required
+					/>
+					<input
+						type="text"
+						id="address"
+						placeholder="Home address*"
+						required
+					/>
+
+					<div class="address-row">
+						<input type="text" id="city" placeholder="City*" required />
+						<input
+							type="text"
+							id="state"
+							placeholder="State*"
+							maxlength="2"
+							required
+						/>
+						<input type="text" id="zip" placeholder="Zip*" required />
+					</div>
+
+					<input
+						type="tel"
+						id="phone"
+						placeholder="Best Phone Number*"
+						required
+					/>
+					<input
+						type="email"
+						id="email"
+						placeholder="Best Email Address*"
+						required
+					/>
+
+					<textarea
+						id="project-details"
+						placeholder="Tell us about your sunroom project"
+						rows="4"
+					></textarea>
+
+					<label class="upload-label">Upload a photo of your porch area (optional)</label>
+					<input
+						type="file"
+						id="porch-image"
+						accept="image/*"
+						class="file-input"
+					/>
+					<p class="upload-help-text">Accepted formats: JPG, PNG, HEIC (Max 10MB)</p>
+				</form>
+
+				<div class="what-happens-next">
+					<h4>What happens next?</h4>
+					<p>
+						During your on-site visit, our sunroom professional will walk
+						through your project's design options, answer all your
+						questions, and provide a detailed written estimate - completely
+						free with no pressure.
+					</p>
+				</div>
+			</div>
+
+			<div class="summary-section">
+				<div class="price-summary">
+					<h3>Your Estimated Range:</h3>
+					<p class="final-price-range">$0 - $0</p>
+					<p>Let's make it official with a detailed, no-obligation quote</p>
+				</div>
+
+				<!-- Contact Form Guarantees -->
+				<div class="contact-guarantees">
+					<div class="guarantee-badge">
+						<span class="icon">🤝</span>
+						<span>No Pressure Sales Ever!</span>
+					</div>
+					<div class="guarantee-badge">
+						<span class="icon">⏰</span>
+						<span>24-Hour Response Guaranteed</span>
+					</div>
+					<div class="guarantee-badge">
+						<span class="icon">📄</span>
+						<span>Written Estimates Always Free</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="button-group">
+			<button class="back-button" id="back-to-calculator">
+				← Back to Calculations
+			</button>
+			<button class="cta-button" id="submit-form">
+				Send My Quote Request →
+			</button>
+		</div>
+	</div>
+
+	<!--
+Screen 3: Thank You -------------------------
+-->
+	<div id="screen-thankyou" class="screen">
+		<div class="thank-you-content">
+			<!-- Success Icon -->
+			<div class="success-icon">✓</div>
+
+			<h1>
+				Thank You! We're Excited to Help You Create Your Perfect Sunroom
+			</h1>
+
+			<!-- Quote Summary Card -->
+			<div class="quote-summary-card">
+				<h3>Your Estimated Range:</h3>
+				<p class="summary-price-range">$0 - $0</p>
+				<p class="summary-details">
+					<span id="summary-room-type">Glass Sunroom</span> |
+					<span id="summary-linear-feet">36.0</span> Linear Feet
+				</p>
+			</div>
+
+			<p class="confirmation">
+				Your quote request has been received, and our team is already
+				reviewing your project details.
+			</p>
+
+			<div class="next-steps">
+				<h3>What Happens Next:</h3>
+				<p class="timeline-highlight">
+					Within the next 24 hours, one of our sunroom specialists will call
+					you to:
+				</p>
+				<ul>
+					<li>Discuss your vision and answer any questions</li>
+					<li>
+						Schedule a convenient time for your free in-home consultation
+					</li>
+					<li>Review design options that match your budget and style</li>
+				</ul>
+				<p class="consultation-details">
+					During your consultation, we'll take measurements, assess your
+					space, and provide an accurate quote tailored to your specific
+					project.
+				</p>
+			</div>
+
+			<!-- In the Meantime Section -->
+			<div class="in-meantime">
+				<h3>In the Meantime:</h3>
+				<div class="resource-links">
+					<a href="#" class="resource-link">
+						<span class="resource-icon">📥</span>
+						<span class="resource-text"
+							>Download Your Free Sunroom Planning Guide</span
+						>
+					</a>
+					<a href="#" class="resource-link">
+						<span class="resource-icon">🏠</span>
+						<span class="resource-text">Browse Our Project Gallery</span>
+					</a>
+					<a href="#" class="resource-link">
+						<span class="resource-icon">⭐</span>
+						<span class="resource-text">Read What Our Customers Say</span>
+					</a>
+				</div>
+			</div>
+
+			<p class="closing-message">
+				We look forward to bringing your sunroom dreams to life!
+			</p>
+
+			<div class="contact-box">
+				<p>
+					Questions? Call us directly at <strong>(910) 555-0000</strong>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
